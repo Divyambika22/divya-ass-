@@ -1,0 +1,217 @@
+PART 1️⃣ : MongoDB (NoSQL Database)
+________________________________________
+1️⃣ What is MongoDB?
+MongoDB is a NoSQL, document-oriented database developed by MongoDB.
+It stores data in:
+●	Documents (JSON-like)
+●	Uses BSON internally (Binary JSON)
+📌 Best for modern applications, APIs, AI bots, microservices.
+________________________________________
+2️⃣ Why MongoDB? (Problem it Solves)
+Traditional SQL databases:
+●	Fixed schema
+●	Hard to scale
+●	Complex joins
+MongoDB:
+●	✅ Flexible schema
+●	✅ High performance
+●	✅ Horizontal scaling
+●	✅ Perfect for APIs & AI systems
+________________________________________
+3️⃣ MongoDB Data Model
+Database
+ └── Collection
+      └── Document
+           └── Fields (key : value)
+
+Example Document
+{
+  "_id": "EMP101",
+  "name": "Jayanth",
+  "email": "jayanth@gmail.com",
+  "salary": 50000,
+  "department": "IT"
+}
+
+________________________________________
+4️⃣ Key MongoDB Concepts
+A. Database
+●	Container for collections
+B. Collection
+●	Like a table (but schema-less)
+C. Document
+●	Like a row (JSON format)
+D. Field
+●	Key-value pairs
+________________________________________
+5️⃣ MongoDB vs SQL
+Feature	MongoDB	SQL
+Schema	Dynamic	Fixed
+Data	JSON	Rows & Columns
+Joins	Limited	Strong
+Scaling	Horizontal	Vertical
+Speed	High	Moderate
+________________________________________
+6️⃣ CRUD Operations in MongoDB
+Create
+db.users.insertOne({name:"Amit", age:25})
+
+Read
+db.users.find({age:25})
+
+Update
+db.users.updateOne(
+  {name:"Amit"},
+  {$set:{age:26}}
+)
+
+Delete
+db.users.deleteOne({name:"Amit"})
+
+________________________________________
+7️⃣ Indexing in MongoDB
+Indexes improve query performance.
+db.users.createIndex({email:1})
+
+Types:
+●	Single field
+●	Compound
+●	Text
+●	TTL (auto delete)
+________________________________________
+8️⃣ MongoDB in Real Projects
+Used for:
+●	User data
+●	Orders
+●	OTP storage
+●	Chat history
+●	AI memory
+●	Logs
+📌 Perfect for Dialogflow, ADK, Flask, FastAPI backends.
+________________________________________________________________________________
+PART 2️⃣ : API (Application Programming Interface)
+________________________________________
+9️⃣ What is an API?
+An API allows two applications to communicate with each other.
+📌 Think of API as:
+Waiter between client and kitchen
+________________________________________
+🔟 Why APIs are Needed
+Without API:
+●	Apps cannot talk
+●	No automation
+With API:
+●	Web ↔ Backend
+●	Mobile ↔ Server
+●	Bot ↔ Database
+●	AI ↔ Tools
+________________________________________
+1️⃣1️⃣ API Architecture (Client–Server)
+Client (Browser / App / Bot)
+   ↓ HTTP Request
+API Server
+   ↓ Logic + DB
+Response (JSON)
+
+________________________________________
+1️⃣2️⃣ Types of APIs
+A. REST API (Most Common)
+●	Uses HTTP
+●	Stateless
+●	JSON format
+B. SOAP API
+●	XML based
+●	Heavy & old
+C. GraphQL
+●	Client decides data
+●	Modern & flexible
+📌 Most projects use REST API
+________________________________________
+1️⃣3️⃣ HTTP Methods (Very Important ⭐)
+Method	Purpose
+GET	Fetch data
+POST	Create data
+PUT	Update full
+PATCH	Update partial
+DELETE	Remove data
+________________________________________
+1️⃣4️⃣ API Request Structure
+POST /createUser
+Headers:
+  Content-Type: application/json
+Body:
+{
+  "name": "Rahul",
+  "email": "rahul@gmail.com"
+}
+
+________________________________________
+1️⃣5️⃣ API Response Example
+{
+  "status": "success",
+  "message": "User created",
+  "user_id": "U102"
+}
+
+________________________________________
+1️⃣6️⃣ API Status Codes
+Code	Meaning
+200	OK
+201	Created
+400	Bad Request
+401	Unauthorized
+404	Not Found
+500	Server Error
+________________________________________
+1️⃣7️⃣ API + MongoDB Flow
+Client
+ ↓
+API Endpoint
+ ↓
+Business Logic
+ ↓
+MongoDB Query
+ ↓
+JSON Response
+
+________________________________________
+1️⃣8️⃣ Example: API with MongoDB (Python)
+@app.route("/getUser", methods=["GET"])
+def get_user():
+    user = db.users.find_one({"email":"test@gmail.com"})
+    return jsonify(user)
+
+________________________________________
+1️⃣9️⃣ API Security
+Important concepts:
+●	Authentication (JWT, OAuth)
+●	Authorization
+●	API keys
+●	Rate limiting
+●	Input validation
+________________________________________
+2️⃣0️⃣ MongoDB + API Use Cases
+●	Login & signup
+●	OTP verification
+●	Order management
+●	Appointment booking
+●	Payroll systems
+●	Chatbots & AI agents
+________________________________________
+2️⃣1️⃣ Interview / Viva Questions
+MongoDB
+Q1: Why MongoDB over SQL?
+A: Flexible schema, faster, scalable.
+Q2: What is BSON?
+A: Binary JSON used internally by MongoDB.
+________________________________________
+API
+Q3: What is REST API?
+A: Stateless API using HTTP methods.
+Q4: Difference between GET and POST?
+A: GET fetches, POST creates.
+________________________________________
+2️⃣2️⃣ One-Line Exam Summary ⭐
+●	MongoDB → NoSQL document database for flexible data storage
+●	API → Communication bridge between client and server
+
